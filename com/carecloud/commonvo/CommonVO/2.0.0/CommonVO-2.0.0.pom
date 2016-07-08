@@ -1,42 +1,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.carecloud.logger</groupId>
-  <artifactId>logger-library</artifactId>
+   <groupId>com.carecloud.commonvo</groupId>
+  <artifactId>CommonVO</artifactId>
+  <name>CommonVO</name>
   <version>2.0.0</version>
-  <name>logger-library</name>
-  <description>logger-library</description>
+  <description>Common VO objects</description>
   
-<dependencies>
-<!-- http://mvnrepository.com/artifact/org.projectlombok/lombok -->
-	<dependency>
-    	<groupId>org.projectlombok</groupId>
-    	<artifactId>lombok</artifactId>
-    	<version>0.11.4</version>
-	</dependency>
-<!-- http://mvnrepository.com/artifact/log4j/log4j -->
-	<dependency>
-	    <groupId>log4j</groupId>
-	    <artifactId>log4j</artifactId>
-	    <version>1.2.17</version>
-	</dependency>
-<!-- http://mvnrepository.com/artifact/org.json/json -->
-	<dependency>
-	    <groupId>org.json</groupId>
-	    <artifactId>json</artifactId>
-	    <version>20160212</version>
-	</dependency> 
-</dependencies>
-<!--  Deploying Maven Repository to Github -->
+  <parent>
+	 <groupId>com.carecloud</groupId>
+	 <artifactId>base-core</artifactId>
+	 <version>0.0.1-SNAPSHOT</version>
+   </parent>
+   
+   <!--  Deploying Maven Repository to Github -->
 
 <!--  First deploy in local repository -->
 <distributionManagement>
  <repository>
-  		<id>logger-library-release</id>
-  		<url>file://${project.build.directory}/logger-library/</url>
+  		<id>CommonVO</id>
+  		<url>file://${project.build.directory}/CommonVO/</url>
   	</repository>  	  	
   	<snapshotRepository>
-  		<id>logger-library-release</id>
-  		<url>file://${project.build.directory}/logger-library/</url>
+  		<id>CommonVO</id>
+  		<url>file://${project.build.directory}/CommonVO/</url>
   	</snapshotRepository>  
 </distributionManagement>
 
@@ -47,9 +33,8 @@
 
 <!--  SCM Configuration -->
 <scm>
- 	<connection>scm:git:git@github.com/Netlink-NBA/test-repo.git</connection> 	  	
+ 	<connection>scm:git:git@github.com/Netlink-NBA/test-repo.git</connection> 	  	 	  	
 </scm>
-
 <!-- MAVEN Build Libraries -->
 <build>  
   <plugins>
@@ -83,12 +68,12 @@
    			<artifactId>site-maven-plugin</artifactId>
     		<version>0.12</version>
   		<configuration>
-  			<outputDirectory>${project.build.directory}/logger-library/</outputDirectory>
+  			<outputDirectory>${project.build.directory}/CommonVO/</outputDirectory>
   			<includes><include>**/*</include></includes>  			 
   			<repositoryName>test-repo</repositoryName>
   			<repositoryOwner>Netlink-NBA</repositoryOwner>  		
   			<branch>refs/heads/2.0.0</branch>
-  			<message> Deploy logger-library for ${project.version}</message>  			
+  			<message> Deploy CommonVO for ${project.version}</message>  			
   		</configuration>
   		<executions>
 	  		<execution>
@@ -114,6 +99,6 @@
 		  </executions>
 	</plugin> -->
    </plugins>      
-</build>
-
+</build> 
+  
 </project>
